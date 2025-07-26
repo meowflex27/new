@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TV Show Trailer</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+    }
+
+    #poster-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    #title-logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      max-width: 100%;
+      max-height: 200px;
+      z-index: 1200;
+    }
+
+    #video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: none;
+      background: black;
+      z-index: 1000;
+    }
+
+    #trailer-player {
+      position: absolute;
+      top: -25vh;
+      left: -25vw;
+      width: 150vw;
+      height: 150vh;
+      border: none;
+      pointer-events: none;
+    }
+
+    #sound-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1100;
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      color: white;
+      font-size: 24px;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="poster-container">
+    <img id="poster" src="" alt="TV Show Poster" />
+    <img id="title-logo" src="" alt="Title Logo" />
+  </div>
+
+  <div id="video-container">
+    <iframe
+      id="trailer-player"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <button id="sound-toggle">🔇</button>
+
+  <script>
+    const apiKey = 'ea97a714a43a0e3481592c37d2c7178a';
+
+    async function loadPosterThenPlayTrailer() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      const type = 'tv'; // This page is for TV shows
+
+      if (!id) {
+        alert('Missing TV show ID');
+        return;
+      }
+
+      try {
+        const detailsRes = await fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=${apiKey}`);
+        const detailsData = await detailsRes.json();
+        const posterPath = detailsData.backdrop_path || detailsData.poster_path;
+        const posterUrl = posterPath
+          ? `https://image.tmdb.org/t/p/original${posterPath}`
+          : 'https://via.placeholder.com/1280x720?text=No+Poster';
+        document.getElementById('poster').src = posterUrl;
+
+        const imagesRes = await fetch(`https://api.themoviedb.org/3/${type}/${id}/images?api_key=${apiKey}`);
+        const imagesData = await imagesRes.json();
+        const logos = imagesData.logos || [];
+        const englishLogo = logos.find(l => l.iso_639_1 === 'en' && l.file_path);
+        if (englishLogo) {
+          const logoUrl = `https://image.tmdb.org/t/p/w500${englishLogo.file_path}`;
+          document.getElementById('title-logo').src = logoUrl;
+        }
+
+        const trailerRes = await fetch(`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${apiKey}`);
+        const trailerData = await trailerRes.json();
+        const trailer = trailerData.results.find(
+          v => v.type === 'Trailer' && v.site === 'YouTube'
+        );
+        const videoKey = trailer?.key;
+
+        setTimeout(() => {
+          if (videoKey) {
+            document.getElementById('poster').style.display = 'none';
+            const iframe = document.getElementById('trailer-player');
+            iframe.src = `https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1&rel=0&controls=0&showinfo=0&enablejsapi=1`;
+            document.getElementById('video-container').style.display = 'block';
+            document.getElementById('sound-toggle').style.display = 'block';
+          } else {
+            document.body.innerHTML = '<h2 style="color:white;text-align:center;margin-top:20vh;">Trailer not available.</h2>';
+          }
+        }, 3000);
+
+      } catch (err) {
+        console.error('Error loading trailer:', err);
+        document.body.innerHTML = '<h2 style="color:white;text-align:center;margin-top:20vh;">Failed to load content.</h2>';
+      }
+    }
+
+    loadPosterThenPlayTrailer();
+
+    let isMuted = true;
+    document.getElementById('sound-toggle').addEventListener('click', () => {
+      const iframe = document.getElementById('trailer-player');
+      const action = isMuted ? 'unMute' : 'mute';
+
+      iframe.contentWindow.postMessage(
+        JSON.stringify({
+          event: 'command',
+          func: action,
+          args: []
+        }),
+        '*'
+      );
+
+      isMuted = !isMuted;
+      document.getElementById('sound-toggle').textContent = isMuted ? '🔇' : '🔊';
+    });
+  </script>
+</body>
+</html>

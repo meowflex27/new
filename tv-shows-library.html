@@ -1,0 +1,257 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Meowflex - Stream Trending Movies, K-Dramas & TV Shows Online</title>
+  <meta name="description" content="Discover and stream trending movies, Korean dramas, and TV shows on Meowflex. Get AI-powered personalized recommendations with MeowBot!" />
+  <meta name="keywords" content="Meowflex, stream movies, Korean drama, TV shows, online streaming, AI recommendations, MeowBot" />
+  <link rel="canonical" href="https://www.meowflex.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Meowflex - Stream Trending Movies & K-Dramas" />
+  <meta property="og:description" content="Watch trending Korean dramas, movies, and shows with MeowBot's AI recommendations!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.meowflex.com/" />
+  <meta property="og:image" content="https://www.meowflex.com/preview.jpg" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Meowflex - Stream Trending Movies & TV Shows" />
+  <meta name="twitter:description" content="Enjoy K-Dramas, movies, and AI-powered suggestions on Meowflex." />
+  <meta name="twitter:image" content="https://www.meowflex.com/preview.jpg" />
+
+  <!-- Styles & Fonts -->
+  <link rel="stylesheet" href="movie-library/style.css" />
+  <link rel="icon" href="meowflex-logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Sitemap & Manifest -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoStreamingService",
+    "name": "Meowflex",
+    "url": "https://www.meowflex.com",
+    "logo": "https://www.meowflex.com/logo.png",
+    "description": "Watch the latest trending movies, K-Dramas, and TV shows with personalized AI recommendations."
+  }
+  
+    <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WXRPPZNF');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXRPPZNF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+<nav class="top-nav">
+  <!-- Left: Logo and Text -->
+<a href="index.html" class="logo-link">
+  <div class="logo-container">
+    <img src="meowflex-logo.png" alt="Meowflex Logo" class="logo-img" />
+    <span class="logo-text">Meowflex</span>
+  </div>
+</a>
+
+
+  <!-- Right: Search icon and Burger Menu -->
+<div class="nav-controls">
+  <div class="notification-icon" id="notificationIcon">
+    <i class="fas fa-bell"></i>
+    <span class="notification-badge" id="notificationBadge" style="display: none;">0</span>
+  </div>
+
+  <a href="search/find.html"><i class="fas fa-search search-icon"></i></a>
+  <div class="burger" id="burger">
+    <i class="fas fa-bars"></i>
+  </div>
+</div>
+
+<div id="notificationModal" class="notification-modal">
+  <div class="notification-header">New Releases</div>
+  <ul id="notificationList" class="notification-list"></ul>
+</div>
+</nav>
+
+<div class="meowflex-menu" id="meowflexMenu">
+  <ul class="meowflex-list">
+    <li>
+      <a href="index.html">
+        <div class="meowflex-icon-label">
+          <img src="home.svg" alt="Home" class="meowflex-icon" />
+          <span>Home</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="movies/main.html">
+        <div class="meowflex-icon-label">
+          <img src="movie.svg" alt="Movies" class="meowflex-icon" />
+          <span>Movies</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="tv/main.html">
+        <div class="meowflex-icon-label">
+          <img src="tv.png" alt="TV Series" class="meowflex-icon" />
+          <span>TV Series</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="korean/main.html">
+        <div class="meowflex-icon-label">
+          <img src="korea-icon.svg" alt="Korean" class="meowflex-icon" />
+          <span>Korean</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="pinoy-Movies/main.html">
+        <div class="meowflex-icon-label">
+          <img src="pinoy-icon.svg" alt="Pinoy Movies" class="meowflex-icon" />
+          <span>Pinoy Movies</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="watchlist/main.html">
+        <div class="meowflex-icon-label">
+          <img src="watchlist.svg" alt="Watchlist" class="meowflex-icon" />
+          <span>Watchlist</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="disclaimer.html">
+        <div class="meowflex-icon-label">
+          <img src="disclaimer.png" alt="Disclaimer" class="meowflex-icon" />
+          <span>Disclaimer</span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div id="watchlist-toast" style="
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  font-size: 14px;
+  text-align: center;
+  width: 90vw;
+  font-family: Arial, sans-serif;
+  transition: opacity 0.3s ease;
+"></div>
+
+
+
+<div id="poster-container">
+  <img id="poster" src="" alt="Movie Poster" />
+  <img id="title-logo" src="" alt="Title Logo" />
+
+  <iframe id="trailer-player" allow="autoplay; encrypted-media" allowfullscreen style="display:none;"></iframe>
+  <button id="sound-toggle" style="display:none;">🔇</button>
+
+  <div class="movie-overlay-info">
+<div class="play-wrapper" onclick="playMovie()">
+  <div class="play-button"><i class="fa fa-play"></i></div>
+  <span class="watch-text">Watch Full TV Shows</span>
+</div>
+
+    <div id="media-info">Loading media info...</div>
+  </div>
+</div>
+
+  <!-- Labels Section -->
+  <div class="labels-wrapper">
+    <div class="labels-row">
+      <span class="label">Overview</span>
+      <span class="label">Trailer</span>
+      <span class="label">Cast</span>
+      <span class="label">Gallery</span>
+      <span class="label">Reviews</span>
+    </div>
+  </div>
+  
+  <div id="info-container"></div>
+ 
+<!-- Related Movies Section -->
+<div class="related-wrapper">
+  <h2>Related Movies</h2>
+  <div class="related-movies-carousel">
+    <button id="prev-related-movies" class="slider-btn" onclick="scrollCarousel('related-list-movies', -1)">&#10094;</button>
+    <div id="related-list-movies" class="related-slider"></div>
+    <button id="next-related-movies" class="slider-btn" onclick="scrollCarousel('related-list-movies', 1)">&#10095;</button>
+  </div>
+</div>
+
+<!-- === Related TV Shows Section === -->
+<div class="related-wrapper">
+  <h2>Related TV Shows</h2>
+  <div class="related-tv-carousel">
+    <button id="prev-related-tv" class="slider-btn">&#10094;</button>
+    <div id="related-list-tv" class="related-slider"></div>
+    <button id="next-related-tv" class="slider-btn">&#10095;</button>
+  </div>
+</div>
+
+<!-- Label Section Trailer Modal -->
+<div id="label-trailer-modal" class="label-trailer-modal hidden">
+  <div class="label-trailer-container">
+    <!-- Close Button Centered Over the Iframe -->
+    <button id="label-trailer-close" aria-label="Close">X</button>
+
+    <!-- YouTube Trailer Iframe -->
+    <iframe
+      id="label-trailer-frame"
+      src=""
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
+
+<script src="tv-shows-library/script.js"></script> 
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    loadPosterThenPlayTrailer();
+    shortenOverviewText(".media-overview", 120, 160);
+    fetchRelatedMovies(id);
+    fetchRelatedShows(id); // ✅ now included
+  });
+</script>
+
+</body>
+</html>

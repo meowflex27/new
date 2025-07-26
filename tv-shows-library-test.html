@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TV Show Details</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <main id="tv-container" class="details-page">
+    <div class="backdrop"></div>
+    <div class="content">
+      <h1 id="tv-title">Loading...</h1>
+      <p id="tv-overview"></p>
+      <p><strong>Genres:</strong> <span id="tv-genres"></span></p>
+      <button id="trailer-button"><i class="fas fa-play"></i> Watch Trailer</button>
+    </div>
+  </main>
+
+  <div id="trailerModal" class="trailer-modal" style="display:none;">
+    <div class="modal-content">
+      <span onclick="closeTrailerModal()" class="close">&times;</span>
+      <iframe id="trailerIframe" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script>
+    const apiKey = 'ea97a714a43a0e3481592c37d2c7178a';
+
+    async function getTvDetails() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      if (!id) return;
+
+      const res = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}`);
+      const tv = await res.json();
+
+      document.querySelector("#tv-title").textContent = tv.name;
+      document.querySelector("#tv-overview").textContent = tv.overview;
+      document.querySelector("#tv-genres").textContent = tv.genres.map(g => g.name).join(", ");
+      document.querySelector(".backdrop").style.backgroundImage = `url(https://image.tmdb.org/t/p/original${tv.backdrop_path})`;
+
+      document.querySelector("#trailer-button").addEventListener("click", async () => {
+        const trailer = await fetch(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${apiKey}`).then(r => r.json());
+        const video = trailer.results.find(v => v.type === "Trailer" && v.site === "YouTube");
+        if (video) openTrailerModal(`https://www.youtube.com/embed/${video.key}?autoplay=1`);
+      });
+    }
+
+    function openTrailerModal(url) {
+      document.getElementById("trailerIframe").src = url;
+      document.getElementById("trailerModal").style.display = "flex";
+    }
+
+    function closeTrailerModal() {
+      document.getElementById("trailerModal").style.display = "none";
+      document.getElementById("trailerIframe").src = "";
+    }
+
+    getTvDetails();
+  </script>
+</body>
+</html>

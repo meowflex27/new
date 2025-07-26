@@ -1,0 +1,292 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Meowflex - Stream Trending Movies, K-Dramas & TV Shows Online</title>
+  <meta name="description" content="Discover and stream trending movies, Korean dramas, and TV shows on Meowflex. Get AI-powered personalized recommendations with MeowBot!" />
+  <meta name="keywords" content="Meowflex, stream movies, Korean drama, TV shows, online streaming, AI recommendations, MeowBot" />
+  <link rel="canonical" href="https://www.meowflex.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Meowflex - Stream Trending Movies & K-Dramas" />
+  <meta property="og:description" content="Watch trending Korean dramas, movies, and shows with MeowBot's AI recommendations!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.meowflex.com/" />
+  <meta property="og:image" content="https://www.meowflex.com/preview.jpg" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Meowflex - Stream Trending Movies & TV Shows" />
+  <meta name="twitter:description" content="Enjoy K-Dramas, movies, and AI-powered suggestions on Meowflex." />
+  <meta name="twitter:image" content="https://www.meowflex.com/preview.jpg" />
+
+  <!-- Styles & Fonts -->
+  <link rel="stylesheet" href="tv-player/style.css" />
+  <link rel="icon" href="meowflex-logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Sitemap & Manifest -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoStreamingService",
+    "name": "Meowflex",
+    "url": "https://www.meowflex.com",
+    "logo": "https://www.meowflex.com/logo.png",
+    "description": "Watch the latest trending movies, K-Dramas, and TV shows with personalized AI recommendations."
+  }
+  
+    <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WXRPPZNF');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXRPPZNF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+<nav class="top-nav">
+  <!-- Left: Logo and Text -->
+<a href="javascript:history.back()" class="logo-link">
+  <div class="logo-container">
+    <img src="meowflex-logo.png" alt="Meowflex Logo" class="logo-img" />
+    <span class="logo-text"><i class="fas fa-angle-left"></i> Back</span>
+  </div>
+</a>
+
+
+  <!-- Right: Search icon and Burger Menu -->
+<div class="nav-controls">
+  <div class="notification-icon" id="notificationIcon">
+    <i class="fas fa-bell"></i>
+    <span class="notification-badge" id="notificationBadge" style="display: none;">0</span>
+  </div>
+
+  <a href="search/find.html"><i class="fas fa-search search-icon"></i></a>
+  <div class="burger" id="burger">
+    <i class="fas fa-bars"></i>
+  </div>
+</div>
+
+<div id="notificationModal" class="notification-modal">
+  <div class="notification-header">New Releases</div>
+  <ul id="notificationList" class="notification-list"></ul>
+</div>
+</nav>
+
+<div class="meowflex-menu" id="meowflexMenu">
+  <ul class="meowflex-list">
+    <li>
+      <a href="index.html">
+        <div class="meowflex-icon-label">
+          <img src="home.svg" alt="Home" class="meowflex-icon" />
+          <span>Home</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="movies/main.html">
+        <div class="meowflex-icon-label">
+          <img src="movie.svg" alt="Movies" class="meowflex-icon" />
+          <span>Movies</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="tv/main.html">
+        <div class="meowflex-icon-label">
+          <img src="tv.png" alt="TV Series" class="meowflex-icon" />
+          <span>TV Series</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="korean/main.html">
+        <div class="meowflex-icon-label">
+          <img src="korea-icon.svg" alt="Korean" class="meowflex-icon" />
+          <span>Korean</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="pinoy-Movies/main.html">
+        <div class="meowflex-icon-label">
+          <img src="pinoy-icon.svg" alt="Pinoy Movies" class="meowflex-icon" />
+          <span>Pinoy Movies</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="watchlist/main.html">
+        <div class="meowflex-icon-label">
+          <img src="watchlist.svg" alt="Watchlist" class="meowflex-icon" />
+          <span>Watchlist</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="disclaimer.html">
+        <div class="meowflex-icon-label">
+          <img src="disclaimer.png" alt="Disclaimer" class="meowflex-icon" />
+          <span>Disclaimer</span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Video Player -->
+<div class="video-wrapper">
+  <iframe
+    id="movie-frame"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+  ></iframe>
+</div>
+
+<!-- Title and Server Selector -->
+<div class="video-header" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
+  <div class="video-title" id="movie-title">Now Playing</div>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <!-- Season dropdown first -->
+    <select id="season-dropdown" class="season-dropdown">
+      <option disabled selected>Season</option>
+    </select>
+
+    <!-- Server dropdown second -->
+    <select class="server-select" id="server-select">
+      <option value="https://vidsrc.cc/v2/embed/tv"selected>Server 1</option>
+      <option value="https://vidsrc.xyz/embed/tv">Server 2</option>
+      <option value="https://player.vidpro.top/embed/tv/">Server 3</option>
+      <option value="https://vidsrc.su/embed/tv">Server 4</option>
+      <option value="https://vidsrc.cc/v3/embed/tv">Server 5</option>
+    </select>
+
+    <!-- Download button -->
+    <a id="download-btn" href="#" target="_blank" class="download-button">
+      <i class="fa fa-download"></i> <span class="download-text">Download</span>
+    </a>
+  </div>
+</div>
+
+    <div id="seasons-tab" class="label-content"></div>
+
+<!-- === CONTINUE WATCHING SECTION === -->
+<div id="continue-watching-section" class="continue-section">
+  <h2 class="section-title">Continue Watching . . .</h2>
+  <div class="carousel-wrapper" id="continue-carousel">
+    <button class="carousel-btn left">&#10094;</button>
+    <div class="carousel-inner" id="continue-watching-list"></div>
+    <button class="carousel-btn right">&#10095;</button>
+  </div>
+</div>
+
+
+<!-- Labels -->
+  <div class="labels-wrapper">
+    <div class="labels-row">
+      <span class="label">Overview</span>
+      <span class="label">Trailer</span>
+      <span class="label">Cast</span>
+      <span class="label">Gallery</span>
+      <span class="label">Reviews</span>
+    </div>
+  </div>
+  
+  <div id="info-container"></div>
+
+<!-- Related Movies Section -->
+<div class="related-wrapper">
+  <h2>Related Movies</h2>
+  <div class="related-movies-carousel">
+    <button id="prev-related-movies" class="slider-btn" onclick="scrollCarousel('related-list-movies', -1)">&#10094;</button>
+    <div id="related-list-movies" class="related-slider"></div>
+    <button id="next-related-movies" class="slider-btn" onclick="scrollCarousel('related-list-movies', 1)">&#10095;</button>
+  </div>
+</div>
+
+<!-- === Related TV Shows Section === -->
+<div class="related-wrapper">
+  <h2>Related TV Shows</h2>
+  <div class="related-tv-carousel">
+    <button id="prev-related-tv" class="slider-btn">&#10094;</button>
+    <div id="related-list-tv" class="related-slider"></div>
+    <button id="next-related-tv" class="slider-btn">&#10095;</button>
+  </div>
+</div>
+
+<!-- Trailer Popup Modal -->
+<div id="trailer-modal">
+  <div class="trailer-container">
+    <span id="trailer-close">×</span> <!-- Move it inside here -->
+    <iframe
+      id="trailer-player"
+      frameborder="0"
+      allow="autoplay; encrypted-media; fullscreen"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
+
+
+<!-- MeowBot Widget -->
+<div id="meowbotWidget">
+  <div class="meowbot-toggle" title="Chat with MeowBot">
+    <i class="fas fa-robot"></i>
+  </div>
+  <div class="meowbot-chatbox">
+    <div class="meowbot-header">
+	<button id="clearChat" class="watchlist-btn" style="position:absolute; top:8px; left:8px;"><i class="fas fa-trash"></i></button>
+      <select id="genreSelect">
+        <option value="">🎭 Genre</option>
+        <option value="action">Action</option>
+        <option value="comedy">Comedy</option>
+        <option value="drama">Drama</option>
+        <option value="horror">Horror</option>
+        <option value="romance">Romance</option>
+        <option value="thriller">Thriller</option>
+        <option value="sci-fi">Sci-Fi</option>
+        <option value="fantasy">Fantasy</option>
+      </select>
+      MeowBot
+	  <button id="themeToggle" class="watchlist-btn">🌓</button>
+    </div>
+    <div class="meowbot-messages"></div>
+    <div class="meowbot-input-area">
+      <input type="text" id="meowbotInput" placeholder="Ask me for a movie or show..." />
+	  <div id="meowbotSuggestions" class="meowbot-suggestions" style="display:none;"></div>
+      <button id="meowbotMic" title="Voice Input"><i class="fas fa-microphone"></i></button>
+      <button id="meowbotSend" title="Send"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script type="module" src="transformers-loader.js"></script>
+
+ <script src="tv-player/script.js"></script> 
+ 
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meowflex</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="android-chrome-512x512.png" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMAmc46I1N0PZ4yA/6GHEssvRvB8C6KH7E+Z6+U+SoA6jR4e2WdXjZGkOP3hQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      font-family: Arial, sans-serif;
+    }
+
+:root {
+  --vh: 1vh;
+}
+
+@media screen and (orientation: portrait) {
+  /* Recalculate vh unit on resize (optional JavaScript recommended) */
+  html {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Base styles */
+#poster-container {
+  position: relative;
+  width: 100vw;
+  height: calc(var(--vh, 1vh) * 85); /* Fix for iOS Safari vh issues */
+  overflow: hidden;
+}
+
+#poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Tablet styles */
+@media (max-width: 989px) {
+  #poster-container {
+    height: calc(var(--vh, 1vh) * 75); /* Adjust height for tablets */
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  #poster-container {
+    height: calc(var(--vh, 1vh) * 65); /* Adjust height for mobile */
+  }
+}
+
+/* Base style for very small screens (300px and up) */
+#title-logo {
+  position: absolute;
+  top: calc(var(--vh, 1vh) * 12); /* increased from 10 */
+  left: 10px;
+  max-width: 90%;
+  max-height: 80px;
+  z-index: 2;
+  margin-left: 0;
+}
+
+/* Small mobile: 400px+ */
+@media (min-width: 300px) {
+  #title-logo {
+    top: calc(var(--vh, 1vh) * 18); /* increased from 11 */
+    max-height: 60px;
+	margin-left:20px;
+  }
+}
+
+/* Tablet: 600px+ */
+@media (min-width: 600px) {
+  #title-logo {
+    top: calc(var(--vh, 1vh) * 20); /* increased from 12 */
+    max-height: 70px;
+    left: 20px;
+    margin-left: 5%;
+  }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  #title-logo {
+    top: calc(var(--vh, 1vh) * 17); /* increased from 14 */
+    max-height: 150px;
+  }
+}
+
+
+    #trailer-player {
+      position: absolute;
+      top: -25%;
+      left: -25%;
+      width: 150%;
+      height: 150%;
+      border: none;
+      display: none;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      #trailer-player {
+        top: -30%;
+        left: -50%;
+        width: 200%;
+        height: 160%;
+      }
+
+      .overlay-info {
+        right: 15px;
+        left: 15px;
+        bottom: 20px;
+        max-width: none;
+        text-align: center;
+      }
+
+      .play-section {
+        justify-content: center;
+        margin-bottom: 8px;
+      }
+
+      .overview-text {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+    }
+
+#sound-toggle {
+  position: absolute;
+  bottom: 20px; /* Adjust as needed */
+  right: 20px;  /* Adjust as needed */
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; /* hidden by default */
+}
+
+/* Mobile view: 300px to 599px */
+@media (min-width: 300px) and (max-width: 599px) {
+  #sound-toggle {
+    display: block;
+    top: 70px;       /* move to top */
+    right: 10px;     /* stick to upper right */
+    bottom: auto;    /* reset bottom */
+    font-size: 20px;
+    padding: 8px;
+  }
+}
+
+/* Tablet view: 600px and up */
+@media (min-width: 600px) and (max-width: 1023px) {
+  #sound-toggle {
+    display: block;
+    right: 25px;
+    font-size: 22px;
+    padding: 9px;
+	top: 90px; 
+  }
+}
+
+
+    /* Movie Title Styling */
+    #movie-title {
+      font-size: 2.5rem;
+      color: white;
+      text-align: center;
+      margin: 30px 0 10px;
+      font-weight: bold;
+      display: none;
+      font-family: 'Anton', sans-serif;
+      letter-spacing: 2px;
+    }
+
+    /* Labels Row Wrapper */
+    .labels-wrapper {
+      display: flex;
+      justify-content: center;
+      background-color: #0a0a0a;
+    }
+
+    /* Labels Row Styling */
+    .labels-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, rgba(18, 18, 18, 0.85), rgba(30, 30, 30, 0.85));
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+	  width: 100%;
+    }
+
+    .label {
+      color: white;
+      padding: 10px 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-size: 1rem;
+      user-select: none;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .label:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: scale(1.05);
+    }
+	
+
+
+/* Mobile (up to 550px) */
+@media (max-width: 599px) {
+  .labels-wrapper {
+    overflow-x: auto;
+    justify-content: center;
+  }
+
+  .labels-row {
+    display: inline-flex;
+    gap: 5px;
+    padding: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: center;
+    scrollbar-width: none;
+  }
+
+  .labels-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .label {
+    font-size: 0.65rem;
+    padding: 6px 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+/* Medium Screens (600px to 900px) */
+@media (min-width: 600px) and (max-width: 900px) {
+  .labels-row {
+    gap: 10px;
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .label {
+    font-size: 0.85rem;
+    padding: 8px 14px;
+  }
+}
+
+    .play-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 10px;
+      margin-left: 5%;
+      cursor: pointer;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    .play-wrapper:hover {
+      color: red;
+    }
+
+    .play-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      font-size: 26px;
+      border: 4px solid white;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .play-wrapper:hover .play-button {
+      border-color: rgba(255, 0, 0, 0.6);
+    }
+
+    .watch-text {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: color 0.3s ease;
+    }
+
+
+/* Base Overlay Styling */
+.overlay-info {
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+  color: white;
+  z-index: 3;
+  max-width: 80%;
+  text-align: left;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Overview text only with background */
+.overview-text {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-top: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* 50% black transparent background */
+  padding: 8px;
+  border-radius: 6px;
+}
+
+/* Mobile view: 300px – 599px */
+@media (max-width: 900px) {
+  .overlay-info {
+    bottom: -5px;
+    left: 0;
+    max-width: 100%;
+    padding: 10px; /* Optional: ensure padding inside the full-width container */
+    box-sizing: border-box; /* Ensures padding doesn't exceed 100% width */
+  }
+
+  .overview-text {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    width: 100%; /* Ensures it fits full container width */
+    box-sizing: border-box; /* Includes padding in the width */
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Tablet view: 900px – 1023px */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .overlay-info {
+    bottom: 5px;
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <!-- Left: Logo and Text -->
+  <div class="logo-container">
+    <img src="meowflex-logo.png" alt="Meowflex Logo" class="logo-img" />
+    <span class="logo-text">Meowflex</span>
+  </div>
+
+  <!-- Right: Search icon and Burger Menu -->
+  <div class="nav-controls">
+    <i class="fas fa-search search-icon"></i>
+    <div class="burger" id="burger">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</nav>
+
+<!-- Place this right after </nav> -->
+<div class="navburger-menu" id="navburgerMenu">
+  <ul class="navburger-list">
+    <li><a href="/">Home</a></li>
+    <li><a href="/movies">Movies</a></li>
+    <li><a href="/tv-shows">TV Shows</a></li>
+    <li><a href="/korean">Korean</a></li>
+    <li><a href="/pinoy">Pinoy Movies</a></li>
+    <li><a href="/favorites">Add to favorites</a></li>
+    <li><a href="/disclaimer">Disclaimer</a></li>
+  </ul>
+</div>
+
+  <!-- Poster and Trailer -->
+  <div id="poster-container">
+    <img id="poster" src="" alt="Movie Poster" />
+    <img id="title-logo" src="" alt="Title Logo" />
+    <iframe id="trailer-player" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <button id="sound-toggle">🔇</button>
+
+    <!-- Overlay: Play and Overview -->
+    <div class="overlay-info">
+      <div class="play-wrapper" onclick="playMovie()">
+        <div class="play-button">
+          <i class="fa fa-play"></i>
+        </div>
+        <span class="watch-text">Watch Full Movie</span>
+      </div>
+      <div class="overview-text" id="movie-overview">Loading overview...</div>
+    </div>
+  </div>
+
+  <!-- Movie Title -->
+  <h1 id="movie-title"></h1>
+
+  <!-- Labels Section -->
+  <div class="labels-wrapper">
+    <div class="labels-row">
+      <span class="label">Overview</span>
+      <span class="label">Trailer</span>
+      <span class="label">Cast</span>
+      <span class="label">Gallery</span>
+      <span class="label">Reviews</span>
+    </div>
+  </div>
+
+  <script>
+    const apiKey = 'ea97a714a43a0e3481592c37d2c7178a';
+
+    async function loadPosterThenPlayTrailer() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      const type = params.get('type') || 'movie';
+
+      if (!id) {
+        alert('Missing movie ID');
+        return;
+      }
+
+      try {
+        const detailsRes = await fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=${apiKey}`);
+        const detailsData = await detailsRes.json();
+
+        document.getElementById('movie-title').textContent = detailsData.title || detailsData.name || 'Untitled';
+        
+  const overviewEl = document.getElementById('movie-overview');
+  const originalOverview = detailsData.overview || 'No overview available.';
+
+  function updateOverview() {
+    const width = window.innerWidth;
+
+    if (width >= 300 && width <= 599) {
+      // Approximate 3 lines on small screens
+      const approxChars = 130;
+      overviewEl.textContent = originalOverview.length > approxChars
+        ? originalOverview.slice(0, approxChars).trim() + '…'
+        : originalOverview;
+    } else {
+      // Full overview for tablet, laptop, and desktop
+      overviewEl.textContent = originalOverview;
+    }
+  }
+
+  // Run on initial load
+  updateOverview();
+
+  // Run on window resize
+  window.addEventListener('resize', updateOverview);
+		
+
+        const posterPath = detailsData.backdrop_path || detailsData.poster_path;
+        const posterUrl = posterPath
+          ? `https://image.tmdb.org/t/p/original${posterPath}`
+          : 'https://via.placeholder.com/1280x720?text=No+Poster';
+        document.getElementById('poster').src = posterUrl;
+
+        const imagesRes = await fetch(`https://api.themoviedb.org/3/${type}/${id}/images?api_key=${apiKey}`);
+        const imagesData = await imagesRes.json();
+        const logos = imagesData.logos || [];
+        const englishLogo = logos.find(l => l.iso_639_1 === 'en' && l.file_path);
+        if (englishLogo) {
+          const logoUrl = `https://image.tmdb.org/t/p/w500${englishLogo.file_path}`;
+          document.getElementById('title-logo').src = logoUrl;
+        }
+
+        const trailerRes = await fetch(`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${apiKey}`);
+        const trailerData = await trailerRes.json();
+        const trailer = trailerData.results.find(v => v.type === 'Trailer' && v.site === 'YouTube');
+        const videoKey = trailer?.key;
+
+        setTimeout(() => {
+          if (videoKey) {
+            document.getElementById('poster').style.display = 'none';
+            const iframe = document.getElementById('trailer-player');
+            iframe.src = `https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1&rel=0&controls=0&showinfo=0&enablejsapi=1`;
+            iframe.style.display = 'block';
+            document.getElementById('sound-toggle').style.display = 'block';
+          } else {
+            document.body.innerHTML = '<h2 style="color:white;text-align:center;margin-top:20vh;">Trailer not available.</h2>';
+          }
+        }, 2000);
+
+      } catch (err) {
+        console.error('Error loading trailer:', err);
+        document.body.innerHTML = '<h2 style="color:white;text-align:center;margin-top:20vh;">Failed to load content.</h2>';
+      }
+    }
+
+function playMovie() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  const type = params.get('type') || 'movie';
+
+  if (!id) {
+    alert('Missing movie ID');
+    return;
+  }
+
+  // Redirect to player.html with query params
+  window.location.href = `player.html?type=${type}&id=${id}`;
+}
+
+
+    loadPosterThenPlayTrailer();
+
+    let isMuted = true;
+
+    document.getElementById('sound-toggle').addEventListener('click', () => {
+      const iframe = document.getElementById('trailer-player');
+      const action = isMuted ? 'unMute' : 'mute';
+
+      iframe.contentWindow.postMessage(
+        JSON.stringify({
+          event: 'command',
+          func: action,
+          args: []
+        }),
+        '*'
+      );
+
+      isMuted = !isMuted;
+      document.getElementById('sound-toggle').textContent = isMuted ? '🔇' : '🔊';
+    });
+	
+  function setVh() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+
+  window.addEventListener('resize', setVh);
+  window.addEventListener('load', setVh);
+  
+  document.addEventListener('DOMContentLoaded', () => {
+  const burger = document.getElementById('burger');
+  const navMenu = document.getElementById('navburgerMenu');
+
+  if (burger && navMenu) {
+    // Toggle menu visibility on burger click
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation(); // prevent document click
+      navMenu.classList.toggle('active');
+    });
+
+    // Prevent closing when clicking inside menu
+    navMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    // Hide menu when clicking outside
+    document.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+    });
+  }
+});
+  </script>
+   <script src="script.js"></script> 
+</body>
+</html>

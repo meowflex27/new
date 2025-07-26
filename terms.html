@@ -1,0 +1,214 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Meowflex - Stream Trending Movies, K-Dramas & TV Shows Online</title>
+  <meta name="description" content="Discover and stream trending movies, Korean dramas, and TV shows on Meowflex. Get AI-powered personalized recommendations with MeowBot!" />
+  <meta name="keywords" content="Meowflex, stream movies, Korean drama, TV shows, online streaming, AI recommendations, MeowBot" />
+  <link rel="canonical" href="https://www.meowflex.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Meowflex - Stream Trending Movies & K-Dramas" />
+  <meta property="og:description" content="Watch trending Korean dramas, movies, and shows with MeowBot's AI recommendations!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.meowflex.com/" />
+  <meta property="og:image" content="https://www.meowflex.com/preview.jpg" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Meowflex - Stream Trending Movies & TV Shows" />
+  <meta name="twitter:description" content="Enjoy K-Dramas, movies, and AI-powered suggestions on Meowflex." />
+  <meta name="twitter:image" content="https://www.meowflex.com/preview.jpg" />
+
+  <!-- Styles & Fonts -->
+  <link rel="stylesheet" href="disclaimer/style.css" />
+  <link rel="icon" href="meowflex-logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Sitemap & Manifest -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoStreamingService",
+    "name": "Meowflex",
+    "url": "https://www.meowflex.com",
+    "logo": "https://www.meowflex.com/logo.png",
+    "description": "Watch the latest trending movies, K-Dramas, and TV shows with personalized AI recommendations."
+  }
+  </script>
+</head>
+
+<body>
+
+<nav class="top-nav">
+  <!-- Left: Logo and Text -->
+  <div class="logo-container">
+    <img src="meowflex-logo.png" alt="Meowflex Logo" class="logo-img" />
+    <span class="logo-text">Meowflex</span>
+  </div>
+
+  <!-- Right: Search icon and Burger Menu -->
+<div class="nav-controls">
+  <div class="notification-icon" id="notificationIcon">
+    <i class="fas fa-bell"></i>
+    <span class="notification-badge" id="notificationBadge" style="display: none;">0</span>
+  </div>
+
+  <a href="search/find.html"><i class="fas fa-search search-icon"></i></a>
+  <div class="burger" id="burger">
+    <i class="fas fa-bars"></i>
+  </div>
+</div>
+
+<div id="notificationModal" class="notification-modal">
+  <div class="notification-header">New Releases</div>
+  <ul id="notificationList" class="notification-list"></ul>
+</div>
+</nav>
+
+<div class="navburger-menu" id="navburgerMenu">
+  <ul class="navburger-list">
+    <li>
+      <a href="index.html">
+        <div class="icon-label"><i class="fas fa-house"></i><span>Home</span></div>
+      </a>
+    </li>
+    <li>
+      <a href="movies/main.html">
+        <div class="icon-label"><i class="fas fa-circle-play"></i><span>Movies</span></div>
+      </a>
+    </li>
+    <li>
+      <a href="tv/main.html">
+        <div class="icon-label"><i class="fas fa-tv"></i><span>TV Series</span></div>
+      </a>
+    </li>
+    <li>
+      <a href="watchlist/main.html">
+        <div class="icon-label">
+          <!-- Bookmark Watchlist Icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="lime" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 2C4.9 2 4 2.9 4 4V22L12 18L20 22V4C20 2.9 19.1 2 18 2H6Z"/>
+          </svg>
+          <span>Watchlist</span>
+        </div>
+      </a>
+    </li>
+
+    <!-- More Dropdown -->
+    <li class="more-dropdown">
+      <a href="javascript:void(0);" onclick="toggleMoreMenu()" class="icon-label">
+        <!-- Lime-colored Hamburger inside Circle SVG -->
+        <svg width="20" height="20" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="256" cy="256" r="240" stroke="lime" stroke-width="32" fill="none"/>
+          <line x1="160" y1="200" x2="352" y2="200" stroke="lime" stroke-width="32" stroke-linecap="round"/>
+          <line x1="160" y1="256" x2="352" y2="256" stroke="lime" stroke-width="32" stroke-linecap="round"/>
+          <line x1="160" y1="312" x2="352" y2="312" stroke="lime" stroke-width="32" stroke-linecap="round"/>
+        </svg>
+        <span>More</span>
+      </a>
+
+      <ul class="more-menu" id="moreMenu">
+        <li><a href="korean/main.html"><i class="fas fa-film"></i> Korean</a></li>
+        <li><a href="pinoy-Movies/main.html"><i class="fas fa-flag"></i> Pinoy Movies</a></li>
+        <li><a href="disclaimer/main.html"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+  <div class="disclaimer-container">
+    <h1><i class="fas fa-gavel" style="color:orange;"></i> Terms of Use</h1>
+
+    <p><strong>Effective Date:</strong> July 21, 2025</p>
+
+    <p>Welcome to <strong>Meowflex</strong>. By using this site, you agree to comply with the following Terms of Use. If you do not accept these terms, you must not access or use the platform.</p>
+
+    <h2>1. Purpose of the Platform</h2>
+    <p>Meowflex is an entertainment discovery site that uses AI-based metadata to recommend trending movies, K-Dramas, and TV shows. It does not provide streaming or downloadable content.</p>
+
+    <h2>2. Non-Commercial Use</h2>
+    <p>You may only use Meowflex for personal, non-commercial purposes. Use of the platform for scraping data, reselling information, or unauthorized promotion is strictly prohibited.</p>
+
+    <h2>3. No Video Hosting</h2>
+    <p>Meowflex does not host, store, or stream any video files. It only displays metadata such as images, titles, and summaries sourced from TMDB and other public APIs.</p>
+
+    <h2>4. User Restrictions</h2>
+    <ul>
+      <li>You must be at least 13 years old to use the site.</li>
+      <li>You may not use bots, crawlers, or scripts to extract or manipulate data.</li>
+      <li>You may not attempt to interfere with the platform’s operation or compromise its security.</li>
+    </ul>
+
+    <h2>5. AI-Generated Content</h2>
+    <p>Recommendations and interactions from MeowBot are automatically generated and provided for discovery and entertainment purposes only. They do not reflect personal advice, endorsements, or factual guarantees.</p>
+
+    <h2>6. Intellectual Property</h2>
+    <p>All third-party trademarks, logos, and content (e.g., images or titles) remain the property of their respective owners. Meowflex makes no claim to ownership and displays them under fair use for identification and commentary.</p>
+
+    <h2>7. External Links</h2>
+    <p>The platform may include links to third-party websites. Meowflex is not responsible for the content, policies, or practices of these external sites.</p>
+
+    <h2>8. Advertisements and Affiliates</h2>
+    <p>Meowflex may display advertisements or affiliate links in the future. These will always be clearly marked, and any commissions earned will not affect your access or experience.</p>
+
+    <h2>9. Limitation of Liability</h2>
+    <p>Meowflex is provided “as is.” We make no warranties regarding accuracy, completeness, or availability. We are not liable for any losses or damages resulting from your use of the site.</p>
+
+    <h2>10. Geographic Restrictions</h2>
+    <p>The site is accessible worldwide, but we do not guarantee that the platform is appropriate or legal in your jurisdiction. You are solely responsible for complying with local laws.</p>
+
+    <h2>11. Changes to the Terms</h2>
+    <p>We reserve the right to modify these Terms at any time. Changes will be reflected on this page. Continued use of Meowflex means you accept the updated terms.</p>
+
+    <p>By using Meowflex, you agree to these Terms of Use in full.</p>
+  </div>
+
+<!-- MeowBot Widget -->
+<div id="meowbotWidget">
+  <div class="meowbot-toggle" title="Chat with MeowBot">
+    <i class="fas fa-robot"></i>
+  </div>
+  <div class="meowbot-chatbox">
+    <div class="meowbot-header">
+	<button id="clearChat" class="watchlist-btn" style="position:absolute; top:8px; left:8px;"><i class="fas fa-trash"></i></button>
+      <select id="genreSelect">
+        <option value="">🎭 Genre</option>
+        <option value="action">Action</option>
+        <option value="comedy">Comedy</option>
+        <option value="drama">Drama</option>
+        <option value="horror">Horror</option>
+        <option value="romance">Romance</option>
+        <option value="thriller">Thriller</option>
+        <option value="sci-fi">Sci-Fi</option>
+        <option value="fantasy">Fantasy</option>
+      </select>
+      MeowBot
+	  <button id="themeToggle" class="watchlist-btn">🌓</button>
+    </div>
+    <div class="meowbot-messages"></div>
+    <div class="meowbot-input-area">
+      <input type="text" id="meowbotInput" placeholder="Ask me for a movie or show..." />
+	  <div id="meowbotSuggestions" class="meowbot-suggestions" style="display:none;"></div>
+      <button id="meowbotMic" title="Voice Input"><i class="fas fa-microphone"></i></button>
+      <button id="meowbotSend" title="Send"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script type="module" src="transformers-loader.js"></script>
+
+ <script src="disclaimer/script.js"></script> 
+ 
+</body>
+</html>

@@ -1,0 +1,436 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Meowflex - Stream Trending Movies, K-Dramas & TV Shows Online</title>
+  <meta name="description" content="Discover and stream trending movies, Korean dramas, and TV shows on Meowflex. Get AI-powered personalized recommendations with MeowBot!" />
+  <meta name="keywords" content="Meowflex, stream movies, Korean drama, TV shows, online streaming, AI recommendations, MeowBot" />
+  <link rel="canonical" href="https://www.meowflex.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Meowflex - Stream Trending Movies & K-Dramas" />
+  <meta property="og:description" content="Watch trending Korean dramas, movies, and shows with MeowBot's AI recommendations!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.meowflex.com/" />
+  <meta property="og:image" content="https://www.meowflex.com/preview.jpg" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Meowflex - Stream Trending Movies & TV Shows" />
+  <meta name="twitter:description" content="Enjoy K-Dramas, movies, and AI-powered suggestions on Meowflex." />
+  <meta name="twitter:image" content="https://www.meowflex.com/preview.jpg" />
+
+  <!-- Styles & Fonts -->
+  <link rel="stylesheet" href="movie-library/style.css" />
+  <link rel="icon" href="meowflex-logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Sitemap & Manifest -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoStreamingService",
+    "name": "Meowflex",
+    "url": "https://www.meowflex.com",
+    "logo": "https://www.meowflex.com/logo.png",
+    "description": "Watch the latest trending movies, K-Dramas, and TV shows with personalized AI recommendations."
+  }
+  
+    <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WXRPPZNF');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXRPPZNF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+<nav class="top-nav">
+  <!-- Left: Logo and Text -->
+<a href="javascript:history.back()" class="logo-link">
+  <div class="logo-container">
+    <img src="meowflex-logo.png" alt="Meowflex Logo" class="logo-img" />
+    <span class="logo-text"><i class="fas fa-angle-left"></i> Back</span>
+  </div>
+</a>
+
+
+  <!-- Right: Search icon and Burger Menu -->
+<div class="nav-controls">
+  <div class="notification-icon" id="notificationIcon">
+    <i class="fas fa-bell"></i>
+    <span class="notification-badge" id="notificationBadge" style="display: none;">0</span>
+  </div>
+
+  <a href="search/find.html"><i class="fas fa-search search-icon"></i></a>
+  <div class="burger" id="burger">
+    <i class="fas fa-bars"></i>
+  </div>
+</div>
+
+<div id="notificationModal" class="notification-modal">
+  <div class="notification-header">New Releases</div>
+  <ul id="notificationList" class="notification-list"></ul>
+</div>
+</nav>
+
+<div class="meowflex-menu" id="meowflexMenu">
+  <ul class="meowflex-list">
+    <li>
+      <a href="index.html">
+        <div class="meowflex-icon-label">
+          <img src="home.svg" alt="Home" class="meowflex-icon" />
+          <span>Home</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="movies/main.html">
+        <div class="meowflex-icon-label">
+          <img src="movie.svg" alt="Movies" class="meowflex-icon" />
+          <span>Movies</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="tv/main.html">
+        <div class="meowflex-icon-label">
+          <img src="tv.png" alt="TV Series" class="meowflex-icon" />
+          <span>TV Series</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="korean/main.html">
+        <div class="meowflex-icon-label">
+          <img src="korea-icon.svg" alt="Korean" class="meowflex-icon" />
+          <span>Korean</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="pinoy-Movies/main.html">
+        <div class="meowflex-icon-label">
+          <img src="pinoy-icon.svg" alt="Pinoy Movies" class="meowflex-icon" />
+          <span>Pinoy Movies</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="watchlist/main.html">
+        <div class="meowflex-icon-label">
+          <img src="watchlist.svg" alt="Watchlist" class="meowflex-icon" />
+          <span>Watchlist</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="disclaimer.html">
+        <div class="meowflex-icon-label">
+          <img src="disclaimer.png" alt="Disclaimer" class="meowflex-icon" />
+          <span>Disclaimer</span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<script>
+
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('meowflexMenu');
+  let hideTimeout;
+
+  function getScreenType() {
+    const width = window.innerWidth;
+    if (width <= 500) return 'mobile';
+    if (width <= 1024) return 'tablet';
+    return 'desktop';
+  }
+
+  let lastScreenType = getScreenType();
+
+  // Toggle menu on burger click
+  burger.addEventListener('click', () => {
+    const isVisible = menu.style.display === 'block';
+
+    menu.style.display = isVisible ? 'none' : 'block';
+
+    if (!isVisible) {
+      clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(() => {
+        menu.style.display = 'none';
+      }, 6000); // Auto-hide after 6 seconds
+    }
+  });
+
+  // Hide menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !burger.contains(e.target)) {
+      menu.style.display = 'none';
+      clearTimeout(hideTimeout);
+    }
+  });
+
+  // Auto-hide on screen resize (desktop/tablet/mobile switch)
+  window.addEventListener('resize', () => {
+    const currentScreenType = getScreenType();
+    if (currentScreenType !== lastScreenType) {
+      menu.style.display = 'none';
+      clearTimeout(hideTimeout);
+      lastScreenType = currentScreenType;
+    }
+  });
+  
+  
+  
+  //scrolling
+// 🌀 Passive listeners for better mobile scroll handling
+document.addEventListener('touchstart', () => {}, { passive: true });
+document.addEventListener('touchmove', () => {}, { passive: true });
+window.addEventListener('scroll', () => {}, { passive: true });
+
+// 🌀 Lazy-load images enhancement (optional if you're using native loading="lazy")
+document.querySelectorAll('img').forEach(img => {
+  if (!img.hasAttribute('loading')) {
+    img.setAttribute('loading', 'lazy');
+  }
+});
+
+// 🌀 ScrollTop inside requestAnimationFrame to avoid layout thrashing
+function smoothScrollToBottom(el) {
+  requestAnimationFrame(() => {
+    el.scrollTop = el.scrollHeight;
+  });
+}
+
+// Replace your usage of `messages.scrollTop = messages.scrollHeight` like this:
+const messages = document.querySelector(".meowbot-messages");
+if (messages) smoothScrollToBottom(messages);
+
+// 🌀 Debounce helper (if you plan to attach scroll logic)
+function debounce(fn, delay = 100) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delay);
+  };
+}
+
+// Example use (optional):
+window.addEventListener('scroll', debounce(() => {
+  // put scroll logic here if needed
+}, 100), { passive: true });
+
+
+</script>
+
+
+
+<style>
+/*burgermenu*/
+.meowflex-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: black;
+  padding: 10px 15px;
+  border-left: 2px solid lime;
+  border-right: 2px solid lime;
+  border-bottom: 2px solid lime;
+  border-top: none;
+  border-radius: 0 0 30px 30px;
+}
+
+/* Icon list layout */
+.meowflex-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.meowflex-icon-label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: lime;
+  cursor: pointer;
+}
+
+.meowflex-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(72%) sepia(92%) saturate(431%) hue-rotate(53deg) brightness(102%) contrast(101%);
+}
+
+/* Hover label */
+.meowflex-icon-label span {
+  position: absolute;
+  top: 40px;
+  background-color: black;
+  color: lime;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+.meowflex-icon-label:hover span {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* MOBILE VIEW: ≤ 500px */
+@media (max-width: 500px) {
+  .meowflex-menu {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid lime; /* All sides */
+    border-radius: 30px 30px 0 0;
+  }
+
+  .meowflex-list {
+    justify-content: space-around;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .meowflex-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .meowflex-icon-label span {
+    top: 30px;
+    font-size: 10px;
+  }
+}
+
+/* TABLET VIEW: 501px–1024px (same as desktop) */
+@media (min-width: 501px) and (max-width: 1024px) {
+  .meowflex-menu {
+    top: 0;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    padding: 10px 15px;
+    border-left: 2px solid lime;
+    border-right: 2px solid lime;
+    border-bottom: 2px solid lime;
+    border-top: none;
+    border-radius: 0 0 30px 30px;
+  }
+
+  .meowflex-list {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .meowflex-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .meowflex-icon-label span {
+    top: 40px;
+    font-size: 11px;
+  }
+}
+
+
+/*scrolling*/
+/* === Mobile Scrolling Performance Boost === */
+
+/* Enable smooth scroll behavior globally */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* GPU acceleration on carousels, sliders, and scrollable areas */
+.carousel-container,
+.carousel-item,
+.poster-wrapper,
+.slide,
+#mainContent {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize transitions */
+.slide,
+.poster-wrapper {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Prevent jank when hover effects apply */
+.poster-wrapper img {
+  image-rendering: -webkit-optimize-contrast;
+  backface-visibility: hidden;
+}
+
+/* Lazy loading image defaults */
+img[loading="lazy"] {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 200px;
+}
+
+.logo-text {
+  font-family: 'LemonMilk', sans-serif;
+  font-size: 1.2rem;
+  color: lime;
+}
+
+/* Mobile view: reduce font size for small screens */
+@media (max-width: 600px) {
+  .logo-text {
+    font-size: 0.9rem;
+  }
+}
+
+.logo-link {
+  text-decoration: none; /* removes underline */
+  color: inherit;        /* keeps text color consistent */
+}
